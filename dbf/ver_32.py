@@ -7345,6 +7345,8 @@ def _codepage_lookup(cp):
         else:
             raise DbfError("Unsupported codepage: %s" % cp)
     sd, ld = code_pages[cp]
+    if sd == 'ascii':  # add by wen66. use gbk, it big than ascii
+        sd = 'gbk'
     return cp, sd, ld
 
 
